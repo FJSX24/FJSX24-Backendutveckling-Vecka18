@@ -1,4 +1,4 @@
-# FJSX24-Backendutveckling-Vecka17
+# FJSX24-Backendutveckling-Vecka18
 Intro till databashantering med SQL
 
 - Databasintroduktion: sql vs nosql, tabeller, SQL-frågor, CRUD-operationer
