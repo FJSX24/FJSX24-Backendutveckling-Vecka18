@@ -1,0 +1,346 @@
+🚀 Workshop Onsdag v.18
+Datum: 2025-04-30
+Tid: 09.00–12.00
+Plats: Ordinarie schema
+Ämne: Databashantering med SQL, PostgreSQL och Express
+
+-----------------------------
+🎯 Syfte
+
+Att förstå grunderna i relationsdatabaser (SQL), skillnaden mot NoSQL, samt lära sig grundläggande SQL-syntax för CRUD-operationer. Koppla samman PostgreSQL med Express för att skapa en komplett backendlösning.
+
+-----------------------------
+✅ Lärandemål
+
+K2: Förklara grunderna i databashantering, normalisering och SQL-frågor.
+
+F2: Skapa och hantera databaser med hjälp av SQL-frågor.
+
+-----------------------------
+🧠 Agenda
+
+09.00–09.10	Intro & dagens mål	Introduktion av dagens lektion
+09.10–09.50	🎯 Quiz (30-40 min)	Förberett quiz – repetition av tidigare kunskap
+09.50–10.20	📚 Teori (SQL, SQL vs NoSQL)	PowerPoint och diskussion
+10.20–10.30	Kort paus ☕	
+10.30–11.10	💻 Code-Along (SQL i pgAdmin)	Skapa DB, tabeller, CRUD
+11.10–11.45	💻 Code-Along (Express + SQL)	Koppla PostgreSQL med Express
+11.45–12.00	🧩 Reflektion & sammanfattning	Diskussion, frågor och summering
+
+-----------------------------
+Quiz: https://docs.google.com/forms/d/e/1FAIpQLScYtUrwiK6iS0Xv85ayuMP5eDATGBeu97-Q9w5WhhrYxdtEvA/viewform
+
+-----------------------------
+📚 PowerPoint & Talarmanus:
+
+Slide 2 – Vad är en databas?
+"En databas är helt enkelt en organiserad samling data. Den är specialiserad på att effektivt lagra, söka, ändra och ta bort data – ofta stora mängder information."
+
+-----------------------------
+Slide 3: Vad är en databas? SQL vs NoSQL
+SQL: Strukturerad, tydliga scheman, starka relationer (PostgreSQL, MySQL)
+
+NoSQL: Flexibel struktur, dokumentbaserad, snabbt skalbar (MongoDB, Firestore)
+
+🗣️ "SQL-databaser är bra för strukturerad data med tydliga relationer, medan NoSQL passar bättre för snabbt växande data med flexibel struktur."
+
+-----------------------------
+Slide 5: Persistent data
+"Persistent data är data som lagras permanent och inte försvinner när servern stängs av. Typiska exempel är användarinformation, inställningar eller inlägg och kommentarer."
+
+-----------------------------
+-------------------------------------------------
+Slide 6 – Vad är SQL?
+"SQL-databaser organiserar data strikt i tabeller där varje rad har samma struktur. Ett exempel på en SQL-fråga är: 'SELECT * FROM customers WHERE name = Johan'."
+
+-------------------------------------------------
+Slide 7 – Vad är NoSQL?
+"NoSQL-databaser lagrar data flexibelt, ofta som JSON-dokument. De är perfekta när data har varierande struktur eller behöver ändras ofta under utvecklingen."
+
+-------------------------------------------------
+Slide 8 – NoSQL vs Relational (Normalisering)
+"Normalisering är en process inom SQL där vi undviker att samma data lagras flera gånger.  Varför? Jo, för att undvika att samma data finns på flera ställen. Duplicering innebär ökad risk för fel, sämre prestanda och försvårar underhåll."
+
+"Syftet är att göra databasen tydlig, snabb och enkel att underhålla. Genom att använda normalisering skapar vi ett effektivt sätt att lagra data där varje bit information sparas exakt en gång och är lätt att uppdatera.
+
+NoSQL tillåter tvärtom viss duplicering, eftersom flexibilitet ofta är viktigare än datakonsistens."
+
+Visa och gå igenom efterkommande slides 9-13.
+
+🧩 Varför är normalisering viktigt?
+Undviker redundans (duplicerad data).
+
+Gör databasen enklare att uppdatera och underhålla.
+
+Säkerställer dataintegritet och minskar risken för inkonsekvenser.
+
+🗣️ Sammanfattning: Hur använda detta i praktiken?
+"När ni börjar designa databaser, tänk alltid på normaliseringsreglerna. Ställ er själva frågor som: Finns det duplicerad data här? Kan datan organiseras bättre? Behöver jag skapa en ny tabell eller en ny relation? Då skapar ni en skalbar och tydlig databasstruktur."
+
+-------------------------------------------------
+Slide 14 – NoSQL vs Relational (Flexibilitet)
+"SQL-databaser kräver strikt och oföränderlig struktur från början. I NoSQL-databaser kan vi däremot ändra och anpassa datastrukturen kontinuerligt efter projektets behov."
+
+-------------------------------------------------
+Slide 15 – NoSQL vs Relational (Skalbarhet)
+"När mängden data ökar kan SQL-databaser bli långsamma och kräver ofta bättre hårdvara. NoSQL-databaser däremot kan enkelt skalas horisontellt genom att lägga till fler servrar, vilket passar bra för stora mängder data, så kallad Big Data."
+
+-------------------------------------------------
+Slide 16 – NoSQL vs Relational (Utvecklingsflexibilitet)
+"En viktig skillnad är utvecklingsflexibiliteten. Med SQL måste du veta exakt vilken data du ska spara redan från början, medan NoSQL-databaser låter dig utveckla och ändra datamodellen löpande under projektets gång. Det ger stor flexibilitet för utvecklaren."
+
+-------------------------------------------------
+Slide 17 – Hur ska man tänka?
+"Så, hur ska du tänka när du modellerar data? Börja alltid med att utgå från applikationens gränssnitt och funktion. Vilken data behövs verkligen för att lösa problemet? Fundera över säkerhet, som känslig data. Tänk alltid på verkliga objekt och deras egenskaper, så bygger du en logisk och hållbar datamodell."
+
+-------------------------------------------------
+-------------------------------------------------
+-------------------------------------------------
+Del 2 - Datamodellering
+
+Slide 19 – Vad är en Datamodell?
+"En datamodell är ett verktyg vi använder för att organisera och strukturera data. Den visar tydligt hur olika delar av vår data hänger ihop, och hjälper oss att förstå relationer mellan objekt, egenskaper och händelser i verkligheten. Målet är att skapa ordning i komplex information."
+
+-------------------------------------------------
+Slide 20 – Utmaningen
+"Den stora utmaningen när vi jobbar med datamodellering är att verkligheten är oerhört komplex. Vår uppgift blir därför att hitta ett sätt att förenkla denna komplexitet, så att vi kan lagra och hantera data effektivt."
+
+-------------------------------------------------
+Slide 21 – Verkligheten vs Datamodell
+"Den här bilden illustrerar ett viktigt koncept: Datamodellen är alltid en förenkling av verkligheten. Till exempel: en människa är komplex med känslor, tankar, upplevelser och relationer. När vi modellerar detta i en databas kan vi bara fånga en liten del – kanske namn, ålder, adress. Datamodellen är alltså aldrig verkligheten själv, utan bara en avgränsad representation av den."
+
+-------------------------------------------------
+Slide 22 – Exempel: Bil
+"När vi modellerar data om ett specifikt objekt, till exempel en bil, börjar vi med att fundera över vilka egenskaper som utmärker detta objekt. Vilka egenskaper har alla bilar gemensamt? Vad skiljer bilar åt? Genom att besvara dessa frågor kan vi skapa en tydlig modell."
+
+-------------------------------------------------
+Slide 23 – Bild (3 olika bilar)
+"Titta på dessa tre bilar: en sportbil, en familjebil och en lastbil. De är väldigt olika, men vad har de gemensamt? Alla har hjul, ett drivmedel, ett registreringsnummer, och så vidare. Datamodellen för en bil ska fokusera på de egenskaper som alla bilar delar. Det är grunden för en hållbar och skalbar datamodell."
+
+-------------------------------------------------
+Slide 24 – Exempel på Bil-objekt
+"Här är ett konkret exempel på ett bil-objekt i JavaScript. Vi har valt några grundläggande egenskaper som antal hjul och bränsletyp. Frågan vi bör ställa oss är alltid: Är alla egenskaper relevanta att spara? Behöver vi verkligen lagra om bilen har en ratt, eller är det självklart?"
+
+-------------------------------------------------
+Slide 25 – Övning (Cykel-objekt)
+"Nu får ni testa själva: Fundera över vilka egenskaper som kännetecknar en cykel. Vad är gemensamt för alla cyklar? Vilka egenskaper skiljer olika cyklar åt? Detta är kärnan i att skapa en effektiv datamodell."
+
+-------------------------------------------------
+Slide 26 – I vilken form kommer data?
+"Data kommer i flera olika format som text, nummer, objekt, arrayer, booleans och binärt format som bilder eller filer. Vilken form data har påverkar hur vi sparar och hanterar den."
+
+-------------------------------------------------
+Slide 27 – Hur ska data sparas?
+"Hur vi sparar data beror på komplexiteten. Enkel data kan sparas i listor eller tabeller, medan mer komplex data ofta kräver dokumentformat eller relationer mellan tabeller eller dokument."
+-------------------------------------------------
+Slide 28 – Repetition!!!!!! Hur ska man tänka?
+"Så, hur ska du tänka när du modellerar data? Börja alltid med att utgå från applikationens gränssnitt och funktion. Vilken data behövs verkligen för att lösa problemet? Fundera över säkerhet, som känslig data. Tänk alltid på verkliga objekt och deras egenskaper, så bygger du en logisk och hållbar datamodell."
+
+-----------------------------
+-----------------------------
+-----------------------------
+💻 Code-Along
+
+🎯 Övergripande mål
+Efter lektionen ska eleverna kunna:
+
+Förklara varför tabeller och kolumner används.
+
+Förstå och utföra grundläggande CRUD-operationer i SQL.
+
+Beskriva vad relationer och foreign keys innebär.
+
+Använda JOIN för att kombinera data från flera tabeller.
+
+-----------------------------
+Del 1 – SQL i pgAdmin 
+
+1. Starta pgAdmin och skapa en ny databas
+Öppna pgAdmin och anslut till din lokala PostgreSQL.
+
+Högerklicka på Databases → Create → Database
+
+Namnge databasen testdb
+
+📚 Viktiga extra begrepp du kan lyfta i diskussion
+SERIAL (auto-increment id)
+
+VARCHAR (maxlängd på text)
+
+INTEGER (heltal)
+
+PRIMARY KEY (unik identifierare)
+
+FOREIGN KEY (relation mellan tabeller)
+
+JOIN (kombinera flera tabeller)
+
+Pool från pg (effektiv hantering av anslutningar)
+
+-----------------------------
+2. Skapa tabeller
+
+📖 Förklaring & syfte
+Varje databas består av tabeller.
+En tabell innehåller kolumner och rader (data).
+
+Exempel: En tabell för användare (users) kan innehålla:
+
+id för att identifiera varje användare unikt.
+
+name för användarens namn.
+
+email för kontaktuppgifter.
+
+🗣️ Talarmanus:
+"Varför behöver vi tabeller och kolumner?
+Tänk er en Excel-fil med flera blad. Varje blad motsvarar en tabell i databasen, och varje kolumn definierar vad som sparas, t.ex. namn eller e-post. Varje rad är en enskild användare."
+
+Högerklicka på testdb → Query Tool för att öppna SQL-skrivverktyget.
+
+Kör följande kod för att skapa tabellen users:
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50),
+  email VARCHAR(50)
+);
+
+Kör SQL-queryn med F5-knappen eller Execute (⏩).
+
+"Här skapar vi vår första tabell (users) med tre kolumner."
+-----------------------------
+3. Grundläggande SQL-queries (CRUD)
+
+Operation	SQL Keyword	Förklaring
+Create	INSERT	Lägg till data
+Read	SELECT	Hämta data
+Update	UPDATE	Ändra befintlig data
+Delete	DELETE	Ta bort data
+
+📌 INSERT (Lägg till data)
+INSERT INTO users (name, email) VALUES ('Anna', 'anna@test.se');
+INSERT INTO products (name, price) VALUES ('Laptop', 12000);
+
+📌 SELECT (Läs data)
+SELECT * FROM users;
+SELECT name, price FROM products;
+
+📌 UPDATE (Uppdatera data)
+UPDATE users SET name='Anna Svensson' WHERE id=1;
+UPDATE products SET price=10000 WHERE id=1;
+
+📌 DELETE (Ta bort data)
+DELETE FROM users WHERE id=1;
+DELETE FROM products WHERE id=1;
+
+-----------------------------
+🔗 Del 4: Relationshantering (Foreign keys)
+
+📖 Förklaring & syfte
+Relationsdatabaser använder nycklar (keys) för att koppla ihop data från olika tabeller.
+
+Primary key: Unik identifierare för varje rad.
+
+Foreign key: Hänvisning till primary key i en annan tabell.
+
+🗣️ Talarmanus:
+"Varför relationer?
+Föreställ er att vi har användare och deras produkter. Vi vill veta vem som äger vilken produkt. Med en foreign key kan vi koppla produkten till användaren utan att duplicera användardata."
+
+⚙️ Execute:
+Skapa tabellen products:
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(50),
+  price INTEGER
+);
+
+"Här skapade vi tabellen products med en foreign key (user_id) som pekar på användarnas id."
+
+Nu har vi användare och produkter, men hur kopplar vi ihop dem? Vi gör detta genom att lägga till en så kallad foreign key. Det betyder att varje produkt kan kopplas till en användare.
+
+⚙️ Execute stegvis i pgAdmin:
+ALTER TABLE products ADD COLUMN user_id INTEGER;
+ALTER TABLE products ADD FOREIGN KEY (user_id) REFERENCES users(id);
+
+Första raden lägger till en ny kolumn (user_id).
+
+Andra raden definierar relationen där varje produkt hänvisar till ett användar-id.
+
+-----------------------------
+5. Skapa relationer mellan tabeller (JOIN-exempel)
+
+JOIN används för att kombinera data från flera tabeller.
+
+Typ av JOIN	Beskrivning
+INNER JOIN	Visar rader där båda tabeller matchar.
+LEFT JOIN	Visar alla rader från vänster tabell.
+RIGHT JOIN	Visar alla rader från höger tabell.
+
+"Varför använder vi JOIN? Om vi har data i olika tabeller och vill visa dem ihop, som produkter med deras ägares namn, behöver vi en JOIN."
+
+⚙️ Execute JOIN-query (INNER JOIN):
+SELECT products.name, products.price, users.name AS owner
+FROM products
+JOIN users ON products.user_id = users.id;
+
+"Denna JOIN visar alla produkter och vem som äger dem."
+
+-----------------------------
+-----------------------------
+-----------------------------
+Code-Along Del 2 – Koppla PostgreSQL med Express
+
+Nu vill vi använda databasen från vår backend (Express). Vi använder paketet pg som låter oss koppla Node.js till PostgreSQL.
+
+"Hur kopplar vi ihop Express och PostgreSQL? Vi använder paketet 'pg' som möjliggör att köra SQL från JavaScript."
+
+1. Förbered Express-projektet
+
+I terminalen:
+npm init -y
+npm install express pg
+
+2. Skapa index.js och koppla till PostgreSQL
+
+Skapa filen index.js:
+
+Genomför den koden
+
+-----------------------------
+Testa endpoints i Postman eller Insomnia.
+
+Starta Express-appen:
+node index.js
+
+Testa med Postman eller Insomnia:
+
+GET: http://localhost:3000/users
+
+POST: http://localhost:3000/users med JSON-body:
+{
+  "name": "Lisa",
+  "email": "lisa@test.se"
+}
+
+-----------------------------
+-----------------------------
+-----------------------------
+Dags för övningar
+
+-----------------------------
+-----------------------------
+-----------------------------
+🔁 Gruppdiskussion 
+
+Vilka utmaningar mötte ni med SQL-syntax?
+
+Hur skiljer sig SQL- och NoSQL-databaser i praktiken?
+
+Hur ser ni på databasstruktur i ert Chas Challenge-projekt?
+
+Vad är fördelen med SQL jämfört med NoSQL?
+
+Vad tycker ni är svårast med SQL-syntax?
+
+Varför är det viktigt med felhantering vid databasoperationer?

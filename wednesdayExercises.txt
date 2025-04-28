@@ -1,0 +1,31 @@
+🧩 Självständiga övningar 
+
+🟢 Lätt nivå
+
+1. Skapa tabell products och utför CRUD-operationer (pgAdmin).
+Lägg till fler användare och produkter.
+Koppla fler produkter till olika users.
+
+2. Lägg till en ny kolumn age INTEGER i tabellen users.
+
+3. Bygg egna små SELECT/UPDATE/DELETE-frågor.
+
+🟠 Medel nivå
+
+1. Skapa Express-routes för GET och POST för tabellen products.
+
+2. Skapa en Express-route för DELETE-användare (DELETE /users/:id).
+
+🔴 Svår nivå
+Skapa en orders-tabell och koppla ihop med products via foreign key.
+
+Implementera Express-endpoints för orders där man kan lägga till och hämta ordrar.
+
+-----------------------------
+-----------------------------
+-----------------------------
+🎁 Extra resurser till studenter
+
+db-fiddle.com för att testa SQL-queries online.
+
+QuickDBD för ER-diagram.
