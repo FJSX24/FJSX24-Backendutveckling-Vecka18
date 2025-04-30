@@ -21,7 +21,7 @@ F2: Skapa och hantera databaser med hjälp av SQL-frågor.
 
 09.00–09.10	Intro & dagens mål	Introduktion av dagens lektion
 09.10–09.50	🎯 Quiz (30-40 min)	Förberett quiz – repetition av tidigare kunskap
-09.50–10.20	📚 Teori (SQL, SQL vs NoSQL)	PowerPoint och diskussion
+09.50–10.20	📚 Teori (SQL, SQL vs NoSQL, datamodellering)	PowerPoint och diskussion
 10.20–10.30	Kort paus ☕	
 10.30–11.10	💻 Code-Along (SQL i pgAdmin)	Skapa DB, tabeller, CRUD
 11.10–11.45	💻 Code-Along (Express + SQL)	Koppla PostgreSQL med Express

@@ -28,4 +28,4 @@ Implementera Express-endpoints för orders där man kan lägga till och hämta o
 
 db-fiddle.com för att testa SQL-queries online.
 
-QuickDBD för ER-diagram.
+draw.io, Lucidchart eller DBeaver för ER-diagram.

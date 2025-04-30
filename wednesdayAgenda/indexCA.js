@@ -49,8 +49,6 @@ app.get("/users", async (req, res) => {
     // pool.query() används för att utföra frågor mot en pool av anslutningar, medan client.query() används för att utföra frågor mot en enskild anslutning."
     // "Vad är skillnaden mellan rows och result?
     // rows är en array med resultaten från frågan, medan result är ett objekt som innehåller metadata om frågan, inklusive rows."
-    // "Vad är skillnaden mellan result.rows och result.rowCount?
-    // result.rows är en array med resultaten från frågan, medan result.rowCount är antalet rader som returnerades av frågan."
 
     const result = await pool.query("SELECT * FROM users");
     res.json(result.rows);
